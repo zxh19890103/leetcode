@@ -1,1 +1,1 @@
-require('./stringCompress')
+require('./minStack')
