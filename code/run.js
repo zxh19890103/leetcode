@@ -1,1 +1,1 @@
-require('./minStack')
+require('./generateMatrix')

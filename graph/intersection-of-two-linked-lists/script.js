@@ -1,6 +1,8 @@
 class ListNode {
+    static __id = 0
     val = null
     next = null
+    id = null
     dataset = {
         xy: { x: 0, y: 0 },
         initial: true
@@ -11,6 +13,8 @@ class ListNode {
      */
     constructor(val) {
         this.val = val
+        // this.val = ++ ListNode.__id
+        // this.id = ++ ListNode.__id
     }
 
     /**
@@ -64,11 +68,15 @@ class ListNode {
     }
 }
 
-const la = new ListNode(5).append(0, 1, 4, 7, 9, 12, 34, 5)
+const range = (n, offset) => {
+    return new Array(n).fill(0).map((v, i) => offset + i)
+}
 
-const lb = new ListNode(4).append(1, 3, 4, 6)
+const la = new ListNode(1).append(...range(4, 2))
 
-const shared = new ListNode(8).append(4, 5, 3, 1)
+const lb = new ListNode(4).append(...range(5, 5))
+
+const shared = new ListNode(8).append(...range(3, 9))
 
 la.concat(shared)
 lb.concat(shared)
@@ -365,7 +373,7 @@ function main(container) {
 
     const noop = () => {}
 
-    const doWorkA = circleA.animate(true, 8, noop)
+    const doWorkA = circleA.animate(true, 2, noop)
     const doWorkB = circleB.animate(false, 1, noop)
 
     animate(() => {
